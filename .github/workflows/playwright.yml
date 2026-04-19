@@ -1,0 +1,102 @@
+name: 🎭 Playwright E2E Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  tc1:
+    name: TC1 — Contact Form Validation
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.0-jammy
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TC1
+        run: npm run test:tc1
+
+      - name: Upload TC1 Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tc1-report
+          path: |
+            playwright-report/
+            test-results/
+
+  tc2:
+    name: TC2 — Successful Submission (x5)
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.0-jammy
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: ▶Run TC2
+        run: npm run test:tc2
+
+      - name: Upload TC2 Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tc2-report
+          path: |
+            playwright-report/
+            test-results/
+
+  tc3:
+    name: TC3 — Shopping Cart Verification
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.44.0-jammy
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TC3
+        run: npm run test:tc3
+
+      - name: Upload TC3 Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tc3-report
+          path: |
+            playwright-report/
+            test-results/

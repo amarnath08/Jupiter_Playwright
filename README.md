@@ -42,11 +42,13 @@ It is designed with:
 ---
 
 ## 📂 Project Structure
+jupiter_playwright/
 ├── pages/ # Page Objects (POM)
 ├── tests/ # Test specs
-├── playwright.config.ts
-├── package.json
-└── .github/workflows/
+├── playwright.config.ts # Playwright configuration
+├── package.json # Dependencies & scripts
+└── .github/
+└── workflows/ # GitHub Actions CI
 
 
 ---

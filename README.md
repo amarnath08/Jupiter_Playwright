@@ -2,6 +2,8 @@
 
 End-to-end UI automation framework built using **Playwright + TypeScript + Page Object Model (POM)**.
 
+[![🎭 Playwright E2E Tests](https://github.com/amarnath08/Jupiter_Playwright/actions/workflows/playwright.yml/badge.svg)](https://github.com/amarnath08/Jupiter_Playwright/actions/workflows/playwright.yml)
+
 This project demonstrates scalable test design, architecture, and CI/CD integration using GitHub Actions.
 
 ---
